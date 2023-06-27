@@ -10,5 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_063624) do
+  create_table "ads", force: :cascade do |t|
+    t.string "name"
+    t.integer "cost"
+    t.integer "magazine_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["magazine_id"], name: "index_ads_on_magazine_id"
+  end
+
+  create_table "magazines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "ads", "magazines"
 end
