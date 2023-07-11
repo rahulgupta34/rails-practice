@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   # get 'home/index'
   # get "/home(/:id)", to: "home#index"
   # get "/homeshow/:id", to: "home#show"
