@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_11_124501) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_12_111429) do
   create_table "ads", force: :cascade do |t|
     t.string "name"
     t.integer "cost"
@@ -47,6 +47,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_124501) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "course_id", null: false
+  end
+
   create_table "magazines", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -61,6 +72,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_124501) do
 
   create_table "physicians", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
