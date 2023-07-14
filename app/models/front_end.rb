@@ -1,0 +1,3 @@
+class FrontEnd < Skill
+    
+end
