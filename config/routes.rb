@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  root "home#index"
+  get "/products", to: "admin_product#index"
+  get "/erb_text", to: "home#erb_supply_using_inline"
+  get "/fetch_data_from_magazine", to: "home#fetch_data_from_magazine"
   # get 'home/index'
   # get "/home(/:id)", to: "home#index"
   # get "/homeshow/:id", to: "home#show"
