@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'magazine/new'
+  root "home#index"
+  get "/search", to: "home#search"
+  post "/chkdata", to: "home#check_box_data"
   # get 'home/index'
   # get "/home(/:id)", to: "home#index"
   # get "/homeshow/:id", to: "home#show"
@@ -37,6 +41,10 @@ Rails.application.routes.draw do
 
   resources :magazines do
     resources :ads, shallow: true
+  end
+
+  namespace "admin" do
+      resources :articles
   end
 
 end
