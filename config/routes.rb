@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
   get "/search", to: "home#search"
   post "/chkdata", to: "home#check_box_data"
+  resources :users
   # get 'home/index'
   # get "/home(/:id)", to: "home#index"
   # get "/homeshow/:id", to: "home#show"
@@ -46,5 +47,7 @@ Rails.application.routes.draw do
   namespace "admin" do
       resources :articles
   end
+
+
 
 end

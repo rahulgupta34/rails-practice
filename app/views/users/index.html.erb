@@ -1,0 +1,30 @@
+<h1>All User List Showing Here.</h1>
+<table>
+  <tr>
+    <th>
+        ID:
+    </th>
+    <th>
+      Name:
+    </th>
+    <th>
+      Age:
+    </th>
+    <th>Street:</th>
+  </tr>
+  <tbody>
+    <% if @users.length > 0 %>
+      <% @users.each do |user| %>
+            <%= render user %>
+      <% end %>
+      <% else %>
+        <h1>No Record.</h1>
+      <% end %>
+    </tbody>
+  </table>
+
+
+<div>
+    <h2>To Create Usre</h2>
+    <%= link_to "Add User", url_for([:new,:user]) %>
+</div>

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= user.name %></td>
+  <td><%= user.age %></td>
+  <td><% user.addresses.each do |address| %>
+  <%= address.street %>,
+  <% end %></td>
+  <td><%= link_to "Edit User", url_for([:edit,user]) %></td>
+  <td><%= link_to "Delete", url_for([user]), data: { turbo_method: :delete } %></td>
+</tr>
