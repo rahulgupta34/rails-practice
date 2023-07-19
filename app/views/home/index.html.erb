@@ -1,2 +1,43 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= stylesheet_link_tag "main" %>
+<h1>Generic Form By form_with Helper</h1>
+<%= form_with url: "/chkdata", method: :post do |form| %>
+  <div>
+    <%= form.label :java, "Java" %>
+    <%= form.check_box :java %>
+  </div>
+  <div>
+    <%= form.label :c, "C" %>
+    <%= form.check_box :c %>
+  </div>
+  <div>
+    <%= form.label :python, "Python" %>
+    <%= form.check_box :python %>
+  </div>
+  <div>
+    <%= form.label :javascript, "Javascript" %>
+    <%= form.check_box :javascript %>
+  </div>
+  <div>
+    <%= form.label :age, "age is greater than 18" %>
+    <%= form.radio_button :age, "teenager" %>
+  </div>
+  <div>
+    <%= form.label :age, "age is less than 18" %>
+    <%= form.radio_button :age, "child" %>
+  </div>
+  <div>
+    <%= form.color_field :favorite_color %>
+  </div>
+  <div>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.text_area :message, size: "70x5" %>
+  </div>
+  <div>
+    <%= form.url_field :homepage %>
+  </div>
+  <div>
+    <%= form.submit "Get Checkbox Values" %>
+  </div>
+<% end %>

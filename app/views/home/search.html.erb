@@ -1,0 +1,20 @@
+<h1>Generic Form Search With form_with Helper.</h1>
+<%= form_with url: "/search", method: :get do |form| %>
+  <div>
+    <%= form.label :search, "Enter The Text You Want to Search." %>
+    <%= form.text_field :search %>
+  </div>
+  <div>
+    <%= form.button "Search" %>
+  </div>
+<% end %>
+
+<h2>Search List Items </h2>
+<!-- Example of using the search list items -->
+<% if @magazine.length > 0 %>
+        <% @magazine.each do |magazine| %>
+                <p><b><%= magazine.id %></b>. <%= magazine.name %></p>
+        <% end %>
+<% else %>
+  <h2>Record Not Found.</h2>
+<% end %>

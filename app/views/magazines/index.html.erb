@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <tbody>
+    <% @magazines.each do |magazine| %>
+      <tr>
+        <td><%= magazine.id %></td>
+        <td><%= magazine.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <h1>link for creating Magazines.</h1>
+  <%= link_to "New Magazine", url_for([:new,:magazine]) %>
+</div>

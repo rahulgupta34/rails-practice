@@ -1,0 +1,26 @@
+<%= form_with model: user do |form| %>
+  <div>
+    <%= form.label :name, "Enter Your Name" %>
+    <%= form.text_field :name, autofocus: false %>
+  </div>
+
+  <div>
+    <%= form.label :age, "Enter Your Age" %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div>
+      <h2>User Address</h2>
+      <%= form.fields_for :addresses do |add_form| %>
+            <div>
+                <%= add_form.label :street, "Enter Your Street Name" %>
+                <%= add_form.text_field :street %>
+            </div>
+      <% end %>
+  </div>
+
+  <div>
+   <%= form.submit  %>
+  </div>
+
+<% end %>

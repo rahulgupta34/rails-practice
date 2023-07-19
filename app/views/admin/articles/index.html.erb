@@ -1,0 +1,29 @@
+<p>Check Box Collections Practice Here.</p>
+
+<%= form_with do |form| %>
+    <div>
+        <%= form.label :name, "Select Your City" %>
+        <%= form.select :name, City.order(name: :asc).map { |ele| [ele.name,ele.id] }, include_blank: "select" %>
+    </div>
+
+    <div>
+        <%= form.label :image, "Upload Picture." %>
+        <%= form.file_field :image %>
+    </div>
+
+    <div>
+        <%= form.label :name1, "Select Your City using Collection " %>
+        <%= form.collection_select :name1, City.order(name: :asc), :id, :name, include_blank: "select" %>
+    </div>
+
+    <div>
+        <%= form.label :cities, "Collection radio button " %>
+        <%= form.collection_radio_buttons :cities, City.order(name: :asc), :id, :name %>
+    </div>
+
+    <div>
+        <%= form.label :chk, "Collection Check Box " %>
+        <%= form.collection_check_boxes :chk, City.order(name: :asc), :id, :name %>
+    </div>
+
+<% end %>

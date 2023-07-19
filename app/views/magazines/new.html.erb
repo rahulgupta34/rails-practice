@@ -1,0 +1,43 @@
+<h1>Dealing with form objects.</h1>
+<%= form_with model: @magazine  do |form| %>
+  <% if form.object.errors.any? %>
+    <%= form.object.errors.full_messages[0] %>
+  <% end %>
+  <div>
+    <%= form.label :name, "Username" %>
+    <%= form.text_field :name %>
+  </div>
+  <%= fields_for :address do |form_address| %>
+    <div>
+        <%= form_address.label :street, "Enter Street Name" %>
+        <%= form_address.text_field :street %>
+    </div>
+  <% end %>
+  <div>
+    <%= form.submit "Save Magazine" %>
+  </div>
+<% end %>
+
+
+<hr />
+
+<%= form_with url: "/search", method: :patch do |form| %>
+        <%= form.select :updated_select, { "Tokyo" => [["Madrid","MD"],["Berlin","BE"]], "North Berginia" => [["AZ-1","1"],["AZ-1",2]] } %>
+        <div>
+            <%= form.label :time_zone_data, "Select Time Zone" %>
+            <%= form.time_zone_select :time_zone_data %>
+        </div>
+        <div>
+            <%= form.label :date_time_zone, "Select Date" %>
+            <%= form.date_select :date_time_zone %>
+        </div>
+         <div>
+            <%= form.label :time_zone, "Select Date" %>
+            <%= form.time_select :time_zone %>
+        </div>
+         <div>
+            <%= form.label :datetime_time_zone, "Select Date" %>
+            <%= form.datetime_select :datetime_time_zone %>
+        </div>
+<% end %>
+
