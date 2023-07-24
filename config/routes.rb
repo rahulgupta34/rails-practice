@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   # get 'home/index'
+  # root "home#index", foo: 'bar' # this is the way to set query params in route by defaulf
+  root "home#index"
+
   # get "/home(/:id)", to: "home#index"
   # get "/homeshow/:id", to: "home#show"
   # concern :commentable do
