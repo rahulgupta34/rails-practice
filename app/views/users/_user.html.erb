@@ -1,0 +1,8 @@
+<tr id="<%= dom_id user %>">
+  <th scope="row"><%= user.id %></th>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.age %></td>
+  <td><%= link_to "Edit User", url_for([:edit,user]) %></td>
+  <td><%= link_to "Destroy User", url_for([user]), data: { turbo_method: :delete, turbo_confirm: "Are You Sure Want to Delete it." } %></td>
+</tr>
