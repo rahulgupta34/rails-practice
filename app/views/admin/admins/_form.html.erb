@@ -1,0 +1,44 @@
+<%= form_with(model: admin_admin) do |form| %>
+  <% if admin_admin.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(admin_admin.errors.count, "error") %> prohibited this admin_admin from being saved:</h2>
+      <ul>
+        <% admin_admin.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= form.label :first_name, style: "display: block" %>
+        <%= form.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= form.label :last_name, style: "display: block" %>
+        <%= form.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="row justify-content-center mt-2">
+      <div class="col-lg-4">
+        <%= form.submit class: "btn btn-primary" %>
+        <%= link_to "Back to admins", url_for([:admin,:admins]), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.add_role :newuser
         format.html { redirect_to url_for([:users]), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else

@@ -1,0 +1,17 @@
+<h1 class="text-center m-4">Edit User Specific Role.</h1>
+<%= form_with model: @user, url: "/users/admin/#{@user.id}" do |form| %>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <%= form.label :role_ids, "Select Role" %>
+      <%= form.collection_check_boxes :role_ids, Role.all, :id, :name, include_hidden: false %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-4">
+      <%= form.submit "Update User Role" %>
+    </div>
+  </div>
+
+<% end %>

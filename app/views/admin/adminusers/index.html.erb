@@ -1,8 +1,7 @@
-<p style="color: green" class="text-center"><%= notice %></p>
-<div class="text-center m-4"><%= link_to "New user", url_for([:new,:user]) %></div>
-<h1 class="text-center">Users</h1>
+<h1 class="text-center m-4">Users List For Add/Modify Roles</h1>
+<%= link_to "Back To Admins", url_for([:admin,:admins]), class: "btn btn-primary mt-4" %>
 <div id="users">
-  <table class="table">
+  <table class="table mt-4">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -11,15 +10,12 @@
         <th scope="col">Age</th>
         <th scope="col">Edit</th>
         <th scope="col">Destroy</th>
-        <th>Roles</th>
-        <% if controller_name != "users" %>
-          <th scope="col">Edit Role</th>
-        <% end %>
+        <th scope="col">Edit Roles</th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user| %>
-        <%= render user %>
+        <%= render partial: "users/user", locals: { user: user } %>
       <% end %>
     </tbody>
   </table>
