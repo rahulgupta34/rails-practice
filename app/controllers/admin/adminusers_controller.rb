@@ -1,7 +1,7 @@
 class Admin::AdminusersController < ApplicationController
 
     def index
-        @users = User.all
+        @users = User.includes(:roles)
     end
 
     def edit
