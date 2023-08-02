@@ -1,0 +1,11 @@
+<tr id="<%= dom_id post %>">
+  <th scope="row"><%= post.id %></th>
+  <td><%= post.title %></td>
+  <td><%= post.description %></td>
+  <% if post.avatar.attached? %>
+    <td><%= image_tag post.avatar, {size: "50x50", class: "rounded" } %></td>
+  <% end %>
+  <td><%= post.users.pluck(:name) %></td>
+  <td><%= post.roles.pluck(:name) %></td>
+  <td><%= link_to "Edit Role", "/admin/adminpostsroleedit/#{post.id}" %></td>
+</tr>

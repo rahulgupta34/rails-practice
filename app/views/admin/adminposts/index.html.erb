@@ -1,0 +1,23 @@
+<h1>Posts</h1>
+<div id="admin_admins">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image</th>
+        <th scope="col">Users</th>
+        <th scope="col">Roles</th>
+        <th scope="col">Edit Roles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <%= render partial: "admin/adminposts/post", locals: { post: post } %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

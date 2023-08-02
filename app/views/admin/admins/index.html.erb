@@ -2,6 +2,7 @@
 <h1 class="text-center mt-4">Admins</h1>
 <%= link_to "New admin", url_for([:new,:admin,:admin]), class: "btn btn-info m-3" %>
 <%= link_to "Users", url_for([:admin,:adminusers]), class: "btn btn-info m-3" %>
+<%= link_to "Posts", url_for([:admin,:adminposts]), class: "btn btn-info m-3" %>
 <div id="admin_admins">
   <table class="table">
     <thead>

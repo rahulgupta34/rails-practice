@@ -1,0 +1,13 @@
+<%= form_with model: post, url: "/admin/adminpostsupdaterole/#{post.id}" do |form| %>
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <%= form.label :role_ids, "Select Role" %>
+      <%= form.collection_check_boxes :role_ids, Role.all, :id, :name, include_hidden: false, class: "m-2" %>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-4">
+      <%= form.submit "Update Post Role" %>
+    </div>
+  </div>
+<% end %>
