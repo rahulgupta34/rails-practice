@@ -1,4 +1,5 @@
 class Admin::AdminsController < ApplicationController
+  layout "layouts/admins"
   before_action :set_admin_admin, only: %i[ show edit update destroy ]
 
   # GET /admin/admins or /admin/admins.json
