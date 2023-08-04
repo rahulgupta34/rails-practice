@@ -1,42 +1,15 @@
 Rails.application.routes.draw do
-  # get 'home/index'
-  # get "/home(/:id)", to: "home#index"
-  # get "/homeshow/:id", to: "home#show"
-  # concern :commentable do
-  #   resources :comments
-  # end
-
-  # concern :image_processing do
-  #   resources :users
-  # end
-
-  # scope "/admin" do
-  #   concerns :commentable
-  # end
-
-  # namespace :admin do
-  #   resources :users
-  # end
-
-  # resources :magazines do
-   
-  #     get "collection_view", on: :collection
-    
-  #   resources :ads, shallow: true do
-  #       get "ad_preview", on: :member
-  #   end
-
-  # end
-  
-  # get "/home/:name", to: redirect { |path_params,req| "/artist/#{path_params[:name]}" }
-  # get "/artist/:name", to: "home#show"
-
-  # # resources :users, param: :ids
-
-  # draw(:admin)
-
-  resources :magazines do
-    resources :ads, shallow: true
+  resources :posts
+  namespace :admin do
+    resources :admins
+    resources :adminusers, only: [:index]
+    resources :adminposts, only: [:index]
   end
+      root "users#index"
+      resources :users
+      get "users/adminusersupdate/:id", to: "admin/adminusers#edit"
+      patch "users/admin/:id", to: "admin/adminusers#update"
 
+      get "admin/adminpostsroleedit/:id", to: "admin/adminposts#edit"
+      patch "admin/adminpostsupdaterole/:id", to: "admin/adminposts#update"
 end

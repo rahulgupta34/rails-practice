@@ -1,0 +1,23 @@
+<h1 class="text-center m-4">Users List For Add/Modify Roles</h1>
+<%= link_to "Back To Admins", url_for([:admin,:admins]), class: "btn btn-primary mt-4" %>
+<div id="users">
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Destroy</th>
+        <th scope="col">Edit Roles</th>
+        <th scope="col">Roles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <%= render partial: "users/user", locals: { user: user } %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

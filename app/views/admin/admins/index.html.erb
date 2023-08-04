@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<h1 class="text-center mt-4">Admins</h1>
+<%= link_to "New admin", url_for([:new,:admin,:admin]), class: "btn btn-info m-3" %>
+<%= link_to "Users", url_for([:admin,:adminusers]), class: "btn btn-info m-3" %>
+<%= link_to "Posts", url_for([:admin,:adminposts]), class: "btn btn-info m-3" %>
+<div id="admin_admins">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Destroy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @admin_admins.each do |admin_admin| %>
+        <%= render admin_admin %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

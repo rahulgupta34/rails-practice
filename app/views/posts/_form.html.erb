@@ -1,0 +1,52 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red" class="ml-auto">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-3">
+      <div class="form-group">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-3">
+      <div class="form-group">
+        <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-3">
+      <div class="form-group">
+         <%= form.label :avatar, style: "display: block" %>
+    <%= form.file_field :avatar, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  
+
+ <div class="row justify-content-center mt-2">
+    <div class="col-lg-3">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+  </div>
+
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-3">
+    <%= link_to "Back to posts", url_for([:posts]), class:"btn btn-primary" %>
+  </div>
+  </div>
+
+<% end %>

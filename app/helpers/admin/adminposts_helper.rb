@@ -1,0 +1,2 @@
+module Admin::AdminpostsHelper
+end

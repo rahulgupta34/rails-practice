@@ -1,0 +1,21 @@
+<div class="col-lg-3 mb-4">
+  <div class="card" style="width: 16rem;" id="<%= dom_id post %>">
+    <% if post.avatar.attached? %>
+      <%= link_to image_tag(post.avatar, width: "252", height: "200"), url_for([post]) %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= post.description %></p>
+      <h4>Post Roles</h4>
+      <p><%= post.roles.pluck(:name) %></p>
+      <h4>Post Users</h4>
+      <p><%= post.users.pluck(:name) %></p>
+      <% if post.roles.pluck(:name).include?("admin") || post.roles.pluck(:name).include?("editor") %>
+        <%= link_to "Edit Post", url_for([:edit,post]) %>
+      <% end %>
+      <% if post.roles.pluck(:name).include?("owner") || post.roles.pluck(:name).include?("admin") %>
+        <%= link_to "Delete Post", url_for([post]), class: "m-3", data: { turbo_method: :delete, turbo_confirm: "Are You Sure Want to Delete This Post." } %>
+      <% end %>
+    </div>
+  </div>
+</div>
