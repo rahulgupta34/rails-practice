@@ -74,3 +74,4 @@ end
 gem "pry"
 gem "rolify"
 gem "aws-sdk-s3"
+gem "friendly_id", "~> 5.4.0"
