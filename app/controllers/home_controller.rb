@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def show
-    @name = params[:name]
+    
   end
 
 end
