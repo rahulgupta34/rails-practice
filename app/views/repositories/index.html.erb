@@ -1,0 +1,19 @@
+<h1>Your Repository</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Repository Name</th>
+      <th scope="col">Repository Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @repo_data.each do |repo| %>
+      <tr>
+        <td scope="row"><%= repo["id"] %></td>
+        <td ><%= repo["name"] %></td>
+        <td><%= link_to repo["name"], "#{repo["owner"]["html_url"]}/#{repo["name"]}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

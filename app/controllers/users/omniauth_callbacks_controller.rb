@@ -27,6 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def github
         @user = User.from_omniauth_github(request.env['omniauth.auth'])
         if @user.persisted?
+            Repository.create(repo_url: request.env['omniauth.auth'].extra.raw_info.repos_url, public_repo: request.env['omniauth.auth'].extra.raw_info.public_repos, user_id: @user.id) unless Repository.where(user_id: @user.id).present?
             flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Github'
             sign_in_and_redirect @user, event: :authentication
         else
