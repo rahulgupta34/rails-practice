@@ -3,4 +3,8 @@
   <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
 <% else %>
   <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: false } %>
+  <br/>
+  <%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post, data: { turbo: false } %>
+  <br/>
+  <%= button_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post, data: { turbo: false } %>
 <% end %>
