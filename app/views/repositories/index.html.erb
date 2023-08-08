@@ -12,7 +12,7 @@
       <tr>
         <td scope="row"><%= repo["id"] %></td>
         <td ><%= repo["name"] %></td>
-        <td><%= link_to repo["name"], "#{repo["owner"]["html_url"]}/#{repo["name"]}" %></td>
+        <td><%= link_to repo["name"], "#{repo["owner"]["html_url"]}/#{repo["name"]}", target: "_blank" %></td>
       </tr>
     <% end %>
   </tbody>
