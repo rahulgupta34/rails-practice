@@ -3,8 +3,11 @@ class RepositoriesController < ApplicationController
 
   def index
     repos = current_user.repository
-    response = RestClient.get(repos.repo_url)
-    @repo_data = JSON.parse(response)
+    if !repos.nil?
+      response = RestClient.get(repos.repo_url) 
+      @repo_data = JSON.parse(response)
+    end
+
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_093321) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_103412) do
   create_table "ads", force: :cascade do |t|
     t.string "name"
     t.integer "cost"
@@ -46,6 +46,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_093321) do
     t.string "provider"
     t.string "uid"
     t.string "name"
+    t.string "access_token"
+    t.integer "expires_at"
+    t.string "refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
