@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_063624) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_111910) do
   create_table "ads", force: :cascade do |t|
     t.string "name"
     t.integer "cost"
@@ -26,5 +26,47 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_063624) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "repositories", force: :cascade do |t|
+    t.string "repo_url"
+    t.integer "public_repo"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_repositories_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "event"
+    t.string "members"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "access_token"
+    t.integer "expires_at"
+    t.string "refresh_token"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "ads", "magazines"
+  add_foreign_key "repositories", "users"
+  add_foreign_key "tasks", "users"
 end
